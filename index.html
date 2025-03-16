@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">To-Do List</h2>
+        <div class="input-group mb-3">
+            <input type="text" id="taskName" class="form-control" placeholder="Enter Task Name">
+        </div>
+        <div class="input-group mb-3">
+            <textarea id="taskDetails" class="form-control" placeholder="Enter Task Details (Optional)"></textarea>
+        </div>
+
+        <!-- Date & Time Selection for Real-Time Reminder -->
+        <div id="realTimeSection" class="mb-3">
+            <label>Set Reminder (Real Time):</label>
+            <input type="datetime-local" id="reminderTime" class="form-control">
+        </div>
+
+        <!-- Countdown Timer Selection -->
+        <div id="countdownSection" class="mb-3" style="display: none;">
+            <label>Set Countdown Timer:</label>
+            <div class="input-group">
+                <input type="number" id="countdownValue" class="form-control" placeholder="Enter value">
+                <select id="countdownUnit" class="form-control">
+                    <option value="seconds">Seconds</option>
+                    <option value="minutes">Minutes</option>
+                    <option value="hours">Hours</option>
+                    <option value="days">Days</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Timer Type Selector -->
+        <select id="timerType" class="form-control mb-3" onchange="toggleTimerInput()">
+            <option value="real-time">Real-Time Reminder</option>
+            <option value="countdown">Countdown Timer</option>
+        </select>
+
+        <!-- Category Selection -->
+        <div class="mb-3">
+            <label for="taskCategory">Category:</label>
+            <select id="taskCategory" class="form-control">
+                <option value="Work">Work</option>
+                <option value="Personal">Personal</option>
+                <option value="Urgent">Urgent</option>
+            </select>
+        </div>
+
+<!-- Priority Selection -->
+        <div class="mb-3">
+            <label for="taskPriority">Priority:</label>
+            <select id="taskPriority" class="form-control">
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+        </div>
+
+
+        <button class="btn btn-primary w-100" onclick="addTask()">Add Task</button>
+
+        <h6>Pending Tasks 📌</h6>
+        <ul id="taskList" class="list-group"></ul>
+
+        <h6>Completed Tasks ✅</h6>
+        <ul id="completedTasks" class="list-group"></ul>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
